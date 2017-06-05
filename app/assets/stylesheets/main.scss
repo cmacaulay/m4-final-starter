@@ -7,6 +7,15 @@ $taupe: #ACAAAC;
 $grey: #575557;
 $pink-brown: #AD7873;
 
-div .link {
+.true {
+  background-color: $grey;
+  color: $white;
 
+}
+
+.link {
+  margin: 2px;
+  padding-top: 5px;
+  width: 30%;
+  height: 200px;
 }

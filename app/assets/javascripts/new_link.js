@@ -29,7 +29,7 @@ function handleNewLink () {
 
 function addNewLink(newLink) {
   let linkCard = `
-    <div class="col-md-4" id="${newLink.id}">
+    <div class="col-md-4 link false" id="${newLink.id}">
       <p>Title: ${newLink.title}</p>
       <p>URL: ${newLink.url}</p>
       <p>Read? false</p>

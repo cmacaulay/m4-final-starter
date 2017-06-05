@@ -8788,3 +8788,16 @@ button.close {
     display: none !important;
   }
 }
+/* line 10, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
+.true {
+  background-color: #575557;
+  color: #FFFEFF;
+}
+
+/* line 16, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
+.link {
+  margin: 2px;
+  padding-top: 5px;
+  width: 30%;
+  height: 200px;
+}

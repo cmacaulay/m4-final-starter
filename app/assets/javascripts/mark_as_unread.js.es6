@@ -15,6 +15,7 @@ function markAsUnread(e) {
   }).then(function(data){
     updateLinkStatus(data)
     updateUnreadButton(data)
+    $(`.link[id=${data.id}]`).removeClass("true")
   })
     .fail(displayFailure);
 }
