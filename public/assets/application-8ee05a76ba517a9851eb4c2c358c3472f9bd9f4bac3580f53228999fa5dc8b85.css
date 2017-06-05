@@ -8792,6 +8792,7 @@ button.close {
 .true {
   background-color: #575557;
   color: #FFFEFF;
+  text-decoration: line-through;
 }
 
 /* line 16, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
@@ -8800,4 +8801,7 @@ button.close {
   padding-top: 5px;
   width: 30%;
   height: 200px;
+  border-color: #86BFE1;
+  border-width: thick;
+  border-style: solid;
 }
