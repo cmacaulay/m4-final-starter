@@ -1,7 +1,7 @@
 <div class="row" id="my-links">
   <% current_user.links.each do |link| %>
     <div class="col-md-4 link <%= link.read %>" id="<%= link.id %>">
-      <p>Title: <%= link.title %></p>
+      <p class="link-title" >Title: <%= link.title %></p>
       <p>URL: <%= link.url %></p>
       <p class="read-status">Read? <%= link.read %></p>
       <p>
