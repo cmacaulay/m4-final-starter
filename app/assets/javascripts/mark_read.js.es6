@@ -1,6 +1,34 @@
 $( document ).ready(function(){
   $("body").on("click", ".mark-as-read", markAsRead)
+  $("body").on("click", ".mark-as-read", hotRead)
 })
+function hotRead(e) {
+  e.preventDefault();
+  var $link = $(this).parents('.link');
+  var linkId = $link[0].id;
+  var link = $(`.link[id=${linkId}]`).find(".link-url")[0]
+  var fullText = link.innerHTML
+  var url = fullText.split(" ")[1]
+  let form = new Object
+  form['url'] = url
+  $.ajax({
+    url: "https://macaulay-hot-reads.herokuapp.com/api/v1/links",
+    method: "POST",
+    data: form
+  })
+  .then(function(link){
+    if (link.hot) {
+      hottestRead(link.id)
+    }
+  })
+  .fail((error)=>{
+    console.error(error)
+  })
+};
+
+function hottestRead(id) {
+  $(`.link[id=${id}]`).text('Hawt')
+}
 
 function markAsRead(e) {
   e.preventDefault();

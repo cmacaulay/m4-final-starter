@@ -11573,7 +11573,6 @@ function searchLinks() {
   let search = $('#link-search').val().toLowerCase();
   $links.find(`div:contains(${search})`).show();
   $links.find(`div:not(:contains(${search}))`).hide();
-  debugger
 };
 
 function showUnreadLinks() {
@@ -11629,7 +11628,33 @@ function displayFailure(failureData) {
 
 $(document).ready(function () {
   $("body").on("click", ".mark-as-read", markAsRead);
+  $("body").on("click", ".mark-as-read", hotRead);
 });
+function hotRead(e) {
+  e.preventDefault();
+  var $link = $(this).parents('.link');
+  var linkId = $link[0].id;
+  var link = $(".link[id=" + linkId + "]").find(".link-url")[0];
+  var fullText = link.innerHTML;
+  var url = fullText.split(" ")[1];
+  var form = new Object();
+  form['url'] = url;
+  $.ajax({
+    url: "http://0.0.0.0:8080/api/v1/links",
+    method: "POST",
+    data: form
+  }).then(function (link) {
+    if (link.hot) {
+      hottestRead(link.id);
+    }
+  }).fail(function (error) {
+    console.error(error);
+  });
+};
+
+function hottestRead(id) {
+  $(".link[id=" + id + "]").append("<p>HOT</p>");
+}
 
 function markAsRead(e) {
   e.preventDefault();
@@ -11684,7 +11709,6 @@ function handleNewLink () {
   })
   .fail( (error) => {
     const message = error.responseJSON.join(". ")
-    console.log(message)
     $('.flash').html(message)
     console.error(error)
   });
@@ -11694,8 +11718,9 @@ function handleNewLink () {
 function addNewLink(newLink) {
   let linkCard = `
     <div class="col-md-4 link false" id="${newLink.id}">
+      <div class="hot"></div>
       <p>Title: ${newLink.title}</p>
-      <p>URL: ${newLink.url}</p>
+      <p class="link-url">URL: ${newLink.url}</p>
       <p>Read? false</p>
       <p>
         <a class="btn btn-default" href="/links/${newLink.id}/edit">

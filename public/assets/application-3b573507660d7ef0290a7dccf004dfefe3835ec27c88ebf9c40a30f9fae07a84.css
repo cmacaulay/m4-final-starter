@@ -8789,13 +8789,16 @@ button.close {
   }
 }
 /* line 10, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
-.true {
+.link.true {
   background-color: #575557;
   color: #FFFEFF;
   text-decoration: line-through;
+  border-width: thick;
+  border-style: solid;
+  border-color: #7E425E;
 }
 
-/* line 16, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
+/* line 19, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
 .link {
   margin: 2px;
   padding-top: 5px;

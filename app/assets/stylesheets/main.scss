@@ -7,10 +7,13 @@ $taupe: #ACAAAC;
 $grey: #575557;
 $pink-brown: #AD7873;
 
-.true {
+.link.true {
   background-color: $grey;
   color: $white;
   text-decoration: line-through;
+  border-width: thick;
+  border-style: solid;
+  border-color: $deep-magenta;
 }
 
 .link {
