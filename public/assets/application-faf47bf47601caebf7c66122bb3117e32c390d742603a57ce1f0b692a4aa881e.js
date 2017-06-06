@@ -11640,7 +11640,7 @@ function hotRead(e) {
   var form = new Object();
   form['url'] = url;
   $.ajax({
-    url: "http://0.0.0.0:8080/api/v1/links",
+    url: "http://macaulay-hot-reads.herokuapp.com/api/v1/links",
     method: "POST",
     data: form
   }).then(function (link) {
@@ -11653,7 +11653,7 @@ function hotRead(e) {
 };
 
 function hottestRead(id) {
-  $(".link[id=" + id + "]").append("<p>HOT</p>");
+  $(".link[id=" + id + "]").text('Hawt');
 }
 
 function markAsRead(e) {
