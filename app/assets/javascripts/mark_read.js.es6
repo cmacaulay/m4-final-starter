@@ -16,15 +16,26 @@ function hotRead(e) {
     method: "POST",
     data: form
   })
-  .then(hottestRead)
+  .then(function(link) {
+    if (link.hot) {
+      hottestRead(linkId)
+      $(`.link[id=${link.id}]`).prepend(`<p class="hottest" >*!* HOTTEST READ *!*</p>`)
+    };
+  })
   .fail((error)=>{
     console.error(error)
   })
 };
 
-function hottestRead(link) {
-  if (link.hot) {
-  }
+function hottestRead(linkId) {
+  $.ajax({
+    type: "PATCH",
+    url: "/api/v1/links/" + linkId,
+    data: { status: "hottest" },
+  })
+  .fail((error)=>{
+    console.error(error)
+  })
 }
 
 function markAsRead(e) {

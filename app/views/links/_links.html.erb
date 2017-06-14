@@ -4,8 +4,10 @@
       <div class="hotread">
         <% if link.status == "hotread" %>
           <p id="hot" >** HOTREAD **</p>
-        <% elsif link.status == "hottest" %>
-          <p class="hottest" >** HOTTEST READ** </p>
+        <% end %>
+        <% if link.status == "hottest" %>
+          <p class="hottest" >*!* HOTTEST READ *!*</p>
+          <p id="hot" >** HOTREAD **</p>
         <% end %>
       </div>
       <p class="search" >Title: <%= link.title %></p>
