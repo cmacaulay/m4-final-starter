@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to links_path
     else
       flash[:notice] = "Please try logging in again."
-      render :new
+      redirect_to root_path
     end
   end
 
