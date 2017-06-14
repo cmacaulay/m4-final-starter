@@ -8816,3 +8816,9 @@ button.close {
   font-size: 20px;
   text-align: center;
 }
+
+/* line 37, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
+.hottest {
+  color: #AD7873;
+  text-align: center;
+}
