@@ -1,6 +1,13 @@
 <div class="row" id="my-links">
   <% current_user.links.each do |link| %>
     <div class="col-md-4 link <%= link.read %>" id="<%= link.id %>">
+      <div class="hotread">
+        <% if link.status == "hotread" %>
+          <p id="hot" >** HOTREAD **</p>
+        <% elsif link.status == "hottest" %>
+          <p class="hottest" >** HOTTEST READ** </p>
+        <% end %>
+      </div>
       <p class="search" >Title: <%= link.title %></p>
       <p class="link-url" >URL: <%= link.url %></p>
       <p class="read-status">Read? <%= link.read %></p>

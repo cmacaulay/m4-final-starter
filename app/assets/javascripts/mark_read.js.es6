@@ -16,18 +16,15 @@ function hotRead(e) {
     method: "POST",
     data: form
   })
-  .then(function(link){
-    if (link.hot) {
-      hottestRead(link.id)
-    }
-  })
+  .then(hottestRead)
   .fail((error)=>{
     console.error(error)
   })
 };
 
-function hottestRead(id) {
-  $(`.link[id=${id}]`).text('Hawt')
+function hottestRead(link) {
+  if (link.hot) {
+  }
 }
 
 function markAsRead(e) {
@@ -39,7 +36,7 @@ function markAsRead(e) {
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
-    data: { read: true },
+    data: { read: true, status: "hotread" },
   }).then(function(data){
     updateLinkStatus(data)
     updateReadButton(data)
@@ -57,6 +54,10 @@ function updateLinkStatus(link) {
   $(`.link[id=${link.id}]`).find(".read-status").text(`Read? ${link.read}`);
   $(`.link[id=${link.id}]`).removeClass("false");
   $(`.link[id=${link.id}]`).addClass("true");
+  let hot = $(`.link[id=${link.id}]`).find("#hot")
+  if (hot.length == 0) {
+    $(`.link[id=${link.id}]`).prepend(`<p id="hot" >** HOTREAD **</p>`)
+  }
 }
 
 function displayFailure(failureData){

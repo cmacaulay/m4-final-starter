@@ -6,6 +6,8 @@ class Link < ActiveRecord::Base
              presence: true
   validates :url, :url => true
 
+  enum status: [:not, :hotread, :hottest]
+
   def save_link(params, user)
     self.title = params[:title]
       self.url = params[:url]

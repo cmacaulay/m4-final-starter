@@ -8803,8 +8803,16 @@ button.close {
   margin: 2px;
   padding-top: 5px;
   width: 30%;
-  height: 200px;
+  height: 225px;
   border-color: #86BFE1;
   border-width: thick;
   border-style: solid;
+}
+
+/* line 30, /Users/caseymacaulay/Projects/Turing/4module/final/m4-final-starter/app/assets/stylesheets/main.scss */
+#hot {
+  text-decoration: underline;
+  color: #6D95A5;
+  font-size: 20px;
+  text-align: center;
 }

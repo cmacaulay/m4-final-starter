@@ -20,8 +20,16 @@ $pink-brown: #AD7873;
   margin: 2px;
   padding-top: 5px;
   width: 30%;
-  height: 200px;
+  height: 225px;
   border-color: $light-blue;
   border-width: thick;
   border-style: solid;
+}
+
+
+#hot {
+  text-decoration: underline;
+  color: $base-color;
+  font-size: 20px;
+  text-align: center;
 }
